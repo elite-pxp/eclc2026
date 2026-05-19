@@ -22,10 +22,10 @@
       font-family: Georgia, "Times New Roman", serif;
       color: var(--ink);
       background: #5b1120;
-      overflow-x: auto;
+      overflow-x: hidden;
     }
     .site {
-      width: 1366px;
+      width: min(1366px, 100%);
       margin: 0 auto;
       background: #5b1120;
       box-shadow: 0 12px 40px rgba(0,0,0,.14);
@@ -33,9 +33,11 @@
     .hero {
       position: relative;
       border-radius: 30px;
-      width: 1366px;
+      width: 100%;
+      max-width: 1366px;
       margin: 0 auto;
-      height: 768px;
+      height: min(768px, 56.25vw);
+      min-height: 420px;
       background-color: #5b1120;
       background-image:
         url("https://res.cloudinary.com/dozcy2jve/image/upload/v1779140219/images/Add_a_subheading_8_uliiaa.png");
@@ -437,6 +439,27 @@
       .features { grid-template-columns: 1fr 1fr; }
       .blaze-left h2 { font-size: 46px; }
       .content h2 { font-size: 40px; }
+      .hero { min-height: 340px; border-radius: 20px; }
+      .hero-menu {
+        position: static;
+        border-radius: 14px;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .hero-menu nav { flex-wrap: wrap; justify-content: center; gap: 10px 14px; }
+      .hero-cta-wrap { bottom: 16px; }
+      #pph-grid { grid-template-columns: 1fr !important; min-height: auto !important; }
+      #pph-traits-row { grid-template-columns: 1fr !important; }
+      #pph-bottom-cards { grid-template-columns: 1fr !important; }
+      #classroom-main-image-2 { height: 180px !important; }
+    }
+    @media (max-width: 640px) {
+      .features { grid-template-columns: 1fr; }
+      .content { padding: 24px 16px 20px; }
+      .content h3 { font-size: 40px; }
+      .content h2 { font-size: 34px; }
+      .hero-cta { padding: 12px 22px; font-size: 16px; }
     }
   </style>
 </head>
@@ -509,15 +532,15 @@
       </div>
     </section>
 
-    <section class="section" style="padding:14px;background:#f6efe2;">
-      <div style="display:grid;gap:12px;grid-template-columns:1fr 1.9fr;min-height:766px;overflow:visible;padding-bottom:10px;">
+    <section class="section" id="pph-section" style="padding:14px;background:#f6efe2;">
+      <div id="pph-grid" style="display:grid;gap:12px;grid-template-columns:1fr 1.9fr;min-height:766px;overflow:visible;padding-bottom:10px;">
         <article style="border:2px solid #7a0f23;border-radius:18px;background:#f8f6f8;padding:12px;color:#3f2a23;">
           <p style="margin:0;font-size:18px;line-height:.9;color:#7a0f23;font-family:'Great Vibes',cursive;">Welcome to</p>
           <h3 style="margin:2px 0 0;font-size:42px;line-height:.9;color:#7a0f23;text-transform:uppercase;">Purpose Pasture Hall</h3>
           <p style="margin:2px 0 0;font-size:24px;color:#7a0f23;font-weight:700;">Elite Freshman Class</p>
           <p style="margin:10px 0 0;font-size:15px;line-height:1.35;">Our One's classroom is where little explorers (1-2 years old) begin their learning journey. We focus on creating a warm, nurturing, and engaging environment that supports early development and a love for learning.</p>
 
-          <div style="margin-top:10px;display:grid;grid-template-columns:1fr 180px;gap:10px;">
+          <div id="pph-traits-row" style="margin-top:10px;display:grid;grid-template-columns:1fr 180px;gap:10px;">
             <div style="border:2px solid #7a0f23;border-radius:12px;background:#fff;padding:10px;">
               <p style="margin:0;color:#7a0f23;font-weight:700;">Blaze represents Freshman Students Traits:</p>
               <ul style="margin:6px 0 0;padding-left:24px;font-size:16px;font-weight:700;line-height:1.2;">
@@ -574,7 +597,7 @@
             </div>
           </article>
 
-          <div style="margin-top:10px;display:grid;gap:10px;grid-template-columns:1fr 1fr;align-items:stretch;">
+          <div id="pph-bottom-cards" style="margin-top:10px;display:grid;gap:10px;grid-template-columns:1fr 1fr;align-items:stretch;">
             <article style="height:100%;border:2px solid #7a0f23;border-radius:28px;background:#f8f6f8;padding:12px;color:#3f2a23;display:flex;flex-direction:column;justify-content:center;">
               <div style="width:100%;max-width:92%;">
                 <h4 style="margin:0;color:#7a0f23;font-size:34px;line-height:1;text-align:center;display:flex;align-items:baseline;justify-content:center;gap:10px;"><span style="line-height:1;">★</span><span style="line-height:1;">WHAT WE DO</span></h4>

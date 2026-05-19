@@ -141,7 +141,7 @@ export default function ECLCLandingPage() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-x-auto bg-[#5b1120] text-[#351a18]">
+    <main className="min-h-screen overflow-x-hidden bg-[#5b1120] text-[#351a18]">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         .icon-shine-react {
@@ -178,14 +178,16 @@ export default function ECLCLandingPage() {
           100% { transform: translateX(-50%); }
         }
       `}</style>
-      <div className="mx-auto w-[1366px]">
+      <div className="mx-auto w-full max-w-[1366px]">
       <section
         className="relative overflow-hidden"
         style={{
           borderRadius: "30px",
-          width: "1366px",
+          width: "100%",
+          maxWidth: "1366px",
           margin: "0 auto",
-          height: "768px",
+          height: "min(768px, 56.25vw)",
+          minHeight: "340px",
           backgroundImage:
             "url('https://res.cloudinary.com/dozcy2jve/image/upload/v1779140219/images/Add_a_subheading_8_uliiaa.png')",
           backgroundColor: "#5b1120",
@@ -194,7 +196,7 @@ export default function ECLCLandingPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <header className="absolute left-6 right-6 top-4 z-10 flex items-center justify-between rounded-full border border-[#ffe7c559] bg-[#3f0d1894] px-4 py-2 backdrop-blur-sm">
+        <header className="absolute left-3 right-3 top-3 z-10 flex flex-col items-center justify-between gap-2 rounded-2xl border border-[#ffe7c559] bg-[#3f0d1894] px-3 py-2 backdrop-blur-sm md:left-6 md:right-6 md:top-4 md:flex-row md:rounded-full md:px-4">
           <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.08em] text-[#ffe7c5]">
             <img
               src="https://res.cloudinary.com/dozcy2jve/image/upload/v1777494677/images/xxx_Panda_Buck_Playbook.pdf_1_i803ac.png"
@@ -203,7 +205,7 @@ export default function ECLCLandingPage() {
             />
             ECLC
           </div>
-          <nav className="flex gap-6">
+          <nav className="flex flex-wrap justify-center gap-3 md:gap-6">
             <a href="#tour" className="text-sm font-bold uppercase tracking-[0.04em] text-[#fff6e9] hover:text-[#f2d39f]">About</a>
             <a href="#enroll" className="text-sm font-bold uppercase tracking-[0.04em] text-[#fff6e9] hover:text-[#f2d39f]">Programs</a>
             <a href="#enroll" className="text-sm font-bold uppercase tracking-[0.04em] text-[#fff6e9] hover:text-[#f2d39f]">Enroll</a>
@@ -236,9 +238,9 @@ export default function ECLCLandingPage() {
         `}</style>
       </section>
 
-      <section id="tour" className="grid w-full gap-8 bg-[#FFF9EF] px-6 py-14 lg:grid-cols-[0.9fr_1.1fr]">
+      <section id="tour" className="grid w-full gap-8 bg-[#FFF9EF] px-3 py-8 md:px-6 md:py-14 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="overflow-hidden rounded-[2rem] border-4 border-white bg-white shadow-xl">
-          <div className="h-[500px] bg-[#FFF9EF] p-8">
+          <div className="h-[320px] bg-[#FFF9EF] p-3 md:h-[500px] md:p-8">
             <div className="flex h-full items-center justify-center overflow-hidden rounded-[2rem] border-4 border-[#8b4a2e] bg-[#FFF9EF] shadow-inner">
               <img
                 src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779128865/images/Website_Icon_Logo_GHL_1_uvv9l0.png"
@@ -381,8 +383,8 @@ export default function ECLCLandingPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-16">
-        <div className="grid min-h-[766px] gap-4 overflow-visible rounded-[2rem] border border-[#ead9bd] bg-[#f6efe2] p-4 pb-6 lg:grid-cols-[1fr_1.9fr]">
+      <section className="px-3 pb-12 md:px-6 md:pb-16">
+        <div className="grid min-h-[766px] gap-4 overflow-visible rounded-[1.25rem] border border-[#ead9bd] bg-[#f6efe2] p-3 pb-6 md:rounded-[2rem] md:p-4 lg:grid-cols-[1fr_1.9fr]">
           <article className="rounded-[1.3rem] border-2 border-[#7a0f23] bg-[#f8f6f8] p-4 text-[#3f2a23]">
             <p className="text-[18px] leading-none text-[#7a0f23]" style={{ fontFamily: "'Great Vibes', cursive" }}>Welcome to</p>
             <h3 className="mt-1 text-4xl font-black uppercase leading-[0.9] text-[#7a0f23]">Purpose Pasture Hall</h3>
@@ -426,7 +428,7 @@ export default function ECLCLandingPage() {
           <div className="grid gap-4">
             <article className="overflow-hidden rounded-[1.3rem] border-2 border-[#7a0f23] bg-[#f8f6f8] p-3">
               <div className="h-full rounded-[1rem] bg-[#f8f6f8] text-[#7a0f23]">
-                <h4 className="flex items-center gap-3 text-2xl font-black">
+                <h4 className="flex items-center gap-3 text-xl font-black md:text-2xl">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7a0f23] text-base text-white">📖</span>
                   Our Classrooms
                 </h4>
@@ -434,7 +436,7 @@ export default function ECLCLandingPage() {
                   <img
                     src={classroomSlideImages[mainClassroomImageIndex]}
                     alt="Our Classrooms main"
-                    className="h-[250px] w-full rounded-xl object-cover"
+                    className="h-[180px] w-full rounded-xl object-cover md:h-[250px]"
                   />
                 </div>
                 <div className="mt-2 overflow-hidden rounded-xl border border-[#e4d5bf] bg-[#fffaf1] p-1.5">
@@ -467,9 +469,9 @@ export default function ECLCLandingPage() {
 
               <article className="h-full rounded-[1.3rem] border-2 border-[#7a0f23] bg-[#f8f6f8] p-4 text-center text-[#3f2a23] flex flex-col">
                 <p className="flex items-center justify-center gap-2 text-[26px] font-bold text-[#7a0f23]"><span className="leading-none">🎁</span><span>New Enrollees Can Get</span></p>
-                <h4 className="mt-2 text-[52px] font-black leading-[0.9] text-[#7a0f23]">1 Free<br />Elite Uniform</h4>
+                <h4 className="mt-2 text-[42px] font-black leading-[0.9] text-[#7a0f23] md:text-[52px]">1 Free<br />Elite Uniform</h4>
                 <p className="mt-2 text-[16px]">when they use the teacher&apos;s referral code:</p>
-                <div className="mx-auto mt-3 w-fit rounded-xl bg-[#6f081b] px-10 py-2 text-[48px] font-black text-white">RED10</div>
+                <div className="mx-auto mt-3 w-fit rounded-xl bg-[#6f081b] px-8 py-2 text-[40px] font-black text-white md:px-10 md:text-[48px]">RED10</div>
                 <p className="mt-3 text-[16px] font-semibold">Two Easy Ways to Register</p>
                 <div className="mt-auto pt-3 grid gap-2 sm:grid-cols-2">
                   <a href="https://elitechildrenlearningcenter.com" target="_blank" rel="noreferrer" className="relative z-[2] block cursor-pointer rounded-xl bg-[#6f081b] px-3 py-3 text-[20px] font-bold text-white">Register Online</a>
