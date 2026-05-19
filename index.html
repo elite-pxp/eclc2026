@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECLC Visual Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --burgundy: #651625;
+      --deep: #3f0d18;
+      --cream: #f8efdf;
+      --gold: #d8a441;
+      --ink: #2f1b16;
+      --card: #fff9ef;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #5b1120;
+      overflow-x: hidden;
+    }
+    .site {
+      width: min(1366px, 100%);
+      margin: 0 auto;
+      background: #5b1120;
+      box-shadow: 0 12px 40px rgba(0,0,0,.14);
+    }
+    .hero {
+      position: relative;
+      border-radius: 30px;
+      width: 100%;
+      max-width: 1366px;
+      margin: 0 auto;
+      height: min(768px, 56.25vw);
+      min-height: 420px;
+      background-color: #5b1120;
+      background-image:
+        url("https://res.cloudinary.com/dozcy2jve/image/upload/v1779140219/images/Add_a_subheading_8_uliiaa.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff6e9;
+      padding: 22px 22px 10px;
+    }
+    .hero-menu {
+      position: absolute;
+      top: 18px;
+      left: 24px;
+      right: 24px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(63, 13, 24, 0.58);
+      border: 1px solid rgba(255, 231, 197, 0.35);
+      backdrop-filter: blur(4px);
+    }
+    .hero-menu .brand-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffe7c5;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .hero-menu .brand-mini img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.85));
+    }
+    .hero-menu nav {
+      display: flex;
+      gap: 22px;
+    }
+    .hero-menu a {
+      color: #fff6e9;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .hero-menu a:hover {
+      color: #f2d39f;
+    }
+    .hero-menu .shop-btn {
+      background: #d8a441;
+      color: #3f0d18;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid #f2d39f;
+    }
+    .hero-menu .shop-btn:hover {
+      color: #3f0d18;
+      background: #e6bb63;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .hero-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 14px;
+      margin-top: -24px;
+    }
+    .brand {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 700;
+      line-height: .95;
+      text-transform: uppercase;
+      color: #fff4df;
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .sub-brand {
+      margin: 8px 0 12px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      font-size: 11px;
+      color: #f2d39f;
+    }
+    .hero-cta {
+      margin-top: 10px;
+      display: inline-block;
+      background: var(--gold);
+      color: var(--deep);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 16px 32px;
+      font-size: 18px;
+      animation: heroCtaFloat 2.2s ease-in-out infinite;
+    }
+    .hero-cta-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 48px;
+      transform: translateX(-50%);
+    }
+    @keyframes heroCtaFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .section {
+      margin: 12px 0;
+      border: 1px solid #e8d8ba;
+      border-radius: 20px;
+      background: var(--card);
+      overflow: hidden;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 0;
+      background: #fff9ef;
+    }
+    .photo {
+      height: 500px;
+      background: #fff9ef;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      overflow: hidden;
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .content {
+      padding: 52px 34px 28px;
+      text-align: center;
+    }
+    .content h2 {
+      margin: 0;
+      color: #5a1320;
+      font-size: clamp(30px, 3.2vw, 52px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .content h2 .title-main {
+      display: block;
+      font-size: clamp(34px, 3.6vw, 56px);
+      white-space: nowrap;
+    }
+    .content h2 .title-sub {
+      display: block;
+      font-size: clamp(28px, 2.9vw, 44px);
+    }
+    .content h3 {
+      margin: 0 0 8px;
+      font-size: 52px;
+      color: #7b4b2a;
+      font-family: "Great Vibes", cursive;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .features {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .feat {
+      background: #fff;
+      border: 1px solid #ebd9bb;
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .feat img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.85));
+      margin: 0 auto 8px;
+    }
+    .icon-shine {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      animation: iconGlow 2.8s ease-in-out infinite;
+    }
+    .icon-shine::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -70%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(255, 236, 179, 0.5) 55%, rgba(255,255,255,0) 100%);
+      transform: skewX(-20deg);
+      animation: shineSweep 2.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shineSweep {
+      0% { left: -70%; }
+      60%, 100% { left: 130%; }
+    }
+    @keyframes iconGlow {
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(216, 164, 65, 0)); }
+      45% { filter: drop-shadow(0 0 10px rgba(216, 164, 65, 0.7)); }
+    }
+    .classroom-slider {
+      overflow: hidden;
+      border: 1px solid #ead9bd;
+      border-radius: 14px;
+      background: #fff7e8;
+      padding: 8px;
+      margin-top: 12px;
+    }
+    .classroom-slider-track {
+      display: flex;
+      gap: 10px;
+      width: max-content;
+      animation: classroomSlide 22s linear infinite;
+    }
+    .classroom-thumb {
+      width: 220px;
+      flex: 0 0 220px;
+      background: #fff;
+      border: 1px solid #ead9bd;
+      border-radius: 14px;
+      padding: 6px;
+    }
+    .classroom-thumb img {
+      display: block;
+      width: 100%;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    @keyframes classroomSlide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .feat b { display: block; color: var(--burgundy); margin-bottom: 4px; }
+
+    .blaze {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      background: linear-gradient(90deg, #5a0e1d 0%, #5a0e1d 42%, #f2e1c2 42%, #f2e1c2 100%);
+      color: #fff3df;
+    }
+    .blaze-left {
+      min-width: 0;
+      background: #672130;
+      outline: 2px dashed #ffd27a;
+      outline-offset: -2px;
+      overflow: hidden;
+      padding: 26px 20px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .blaze-left h2 {
+      margin: 0;
+      font-size: 66px;
+      line-height: .88;
+      color: #ffe8ba;
+    }
+    .blaze-left p { font-size: 34px; margin: 8px 0 14px; }
+    .mascot-cards {
+      min-width: 0;
+      margin: 16px auto 0;
+      width: 100%;
+      max-width: 520px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .mascot-card {
+      min-width: 0;
+      background: #fff8ea;
+      border: 1px solid #dcbf8a;
+      border-radius: 14px;
+      padding: 16px 8px;
+      min-height: 240px;
+      text-align: center;
+      color: #651625;
+    }
+    .mascot-card img {
+      width: 84px;
+      height: 84px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .mascot-card b {
+      display: block;
+      font-size: 20px;
+      line-height: 1.05;
+      margin-bottom: 2px;
+    }
+    .mascot-card span {
+      font-size: 15px;
+      line-height: 1.35;
+      color: #6c2835;
+    }
+    .blaze-right {
+      color: #4f1220;
+      padding: 0;
+      display: grid;
+      place-items: stretch;
+      text-align: center;
+      overflow: hidden;
+    }
+    .horse {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+      border-radius: 0;
+    }
+    .room {
+      font-size: 54px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 10px;
+    }
+    .panel {
+      border: 1px solid #ead5b2;
+      border-radius: 16px;
+      padding: 16px;
+      background: #fffaf0;
+      min-height: 760px;
+      height: 760px;
+    }
+    .panel h4 {
+      margin: 0 0 10px;
+      color: #5d1220;
+      font-size: 34px;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.6;
+    }
+    .promo {
+      background: #fff;
+      border: 2px solid #e7d1aa;
+      text-align: center;
+    }
+    .promo .code {
+      margin: 10px auto;
+      display: inline-block;
+      background: #651625;
+      color: #fff7e8;
+      padding: 8px 24px;
+      border-radius: 8px;
+      letter-spacing: .07em;
+      font-weight: 700;
+      font-size: 30px;
+    }
+    footer {
+      background: #5a0f1f;
+      color: #fceccf;
+      text-align: center;
+      padding: 12px;
+      letter-spacing: .05em;
+      font-size: 11px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .two-col, .blaze, .bottom { grid-template-columns: 1fr; }
+      .pillbar { grid-template-columns: 1fr 1fr; }
+      .features { grid-template-columns: 1fr 1fr; }
+      .blaze-left h2 { font-size: 46px; }
+      .content h2 { font-size: 40px; }
+      .hero { min-height: 340px; border-radius: 20px; }
+      .hero-menu {
+        position: static;
+        border-radius: 14px;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .hero-menu nav { flex-wrap: wrap; justify-content: center; gap: 10px 14px; }
+      .hero-cta-wrap { bottom: 16px; }
+      #pph-grid { grid-template-columns: 1fr !important; min-height: auto !important; }
+      #pph-traits-row { grid-template-columns: 1fr !important; }
+      #pph-bottom-cards { grid-template-columns: 1fr !important; }
+      #classroom-main-image-2 { height: 180px !important; }
+    }
+    @media (max-width: 640px) {
+      .features { grid-template-columns: 1fr; }
+      .content { padding: 24px 16px 20px; }
+      .content h3 { font-size: 40px; }
+      .content h2 { font-size: 34px; }
+      .hero-cta { padding: 12px 22px; font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="site">
+    <section class="hero">
+      <header class="hero-menu">
+        <div class="brand-mini">
+          <img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1777494677/images/xxx_Panda_Buck_Playbook.pdf_1_i803ac.png" alt="ECLC logo" />
+          ECLC
+        </div>
+        <nav>
+          <a href="#tour">About</a>
+          <a href="#enroll">Programs</a>
+          <a href="#enroll">Enroll</a>
+          <a href="#contact">Contact</a>
+          <a class="shop-btn" href="#shop">Shop</a>
+        </nav>
+      </header>
+      <div class="hero-grid">
+        <div class="hero-center">
+          <div class="hero-cta-wrap">
+            <a class="hero-cta" href="#enroll">Enroll Today</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="photo">
+        <img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779128865/images/Website_Icon_Logo_GHL_1_uvv9l0.png" alt="ECLC logo" />
+      </div>
+      <div class="content">
+        <h3>Welcome to</h3>
+        <h2><span class="title-main">Elite Children</span><span class="title-sub">Learning Center</span></h2>
+        <p>At ECLC, we believe every child is a gift with endless potential. Our mission is to provide a safe, loving, and stimulating environment where children learn, grow, and thrive academically, socially, and emotionally.</p>
+        <div class="features">
+          <div class="feat"><span class="icon-shine"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779147605/images/5_qrvhm3.png" alt="Nurturing Hearts icon" /></span><b>Nurturing Hearts</b>We care for every child like family.</div>
+          <div class="feat"><span class="icon-shine"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779147608/images/6_noaazw.png" alt="Building Minds icon" /></span><b>Building Minds</b>We inspire curiosity and a love for learning.</div>
+          <div class="feat"><span class="icon-shine"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779140367/images/Stronger_Together_gmeyh1.png" alt="Stronger Together icon" /></span><b>Stronger Together</b>We partner with families for lifelong success.</div>
+          <div class="feat"><span class="icon-shine"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779147617/images/7_bmhypq.png" alt="Shaping Futures icon" /></span><b>Shaping Futures</b>We prepare children to be confident leaders.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blaze">
+      <div class="blaze-left">
+        <h2>Meet Blaze<br/>the Horse</h2>
+        <p>The One's Classroom Mascot</p>
+        <div class="mascot-cards">
+          <article class="mascot-card">
+            <img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779147605/images/5_qrvhm3.png" alt="Trust icon" />
+            <b>Trust</b>
+            <span>Safe bonds and confidence.</span>
+          </article>
+          <article class="mascot-card">
+            <img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779147608/images/6_noaazw.png" alt="Movement icon" />
+            <b>Movement</b>
+            <span>Active play and coordination.</span>
+          </article>
+          <article class="mascot-card">
+            <img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779147617/images/7_bmhypq.png" alt="Discovery icon" />
+            <b>Discovery</b>
+            <span>Curiosity through exploration.</span>
+          </article>
+        </div>
+      </div>
+      <div class="blaze-right">
+        <img class="horse" src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779143869/images/Website_Icon_Logo_GHL_3_u7ehtm.png" alt="Red House mascot" />
+      </div>
+    </section>
+
+    <section class="section" id="pph-section" style="padding:14px;background:#f6efe2;">
+      <div id="pph-grid" style="display:grid;gap:12px;grid-template-columns:1fr 1.9fr;min-height:766px;overflow:visible;padding-bottom:10px;">
+        <article style="border:2px solid #7a0f23;border-radius:18px;background:#f8f6f8;padding:12px;color:#3f2a23;">
+          <p style="margin:0;font-size:18px;line-height:.9;color:#7a0f23;font-family:'Great Vibes',cursive;">Welcome to</p>
+          <h3 style="margin:2px 0 0;font-size:42px;line-height:.9;color:#7a0f23;text-transform:uppercase;">Purpose Pasture Hall</h3>
+          <p style="margin:2px 0 0;font-size:24px;color:#7a0f23;font-weight:700;">Elite Freshman Class</p>
+          <p style="margin:10px 0 0;font-size:15px;line-height:1.35;">Our One's classroom is where little explorers (1-2 years old) begin their learning journey. We focus on creating a warm, nurturing, and engaging environment that supports early development and a love for learning.</p>
+
+          <div id="pph-traits-row" style="margin-top:10px;display:grid;grid-template-columns:1fr 180px;gap:10px;">
+            <div style="border:2px solid #7a0f23;border-radius:12px;background:#fff;padding:10px;">
+              <p style="margin:0;color:#7a0f23;font-weight:700;">Blaze represents Freshman Students Traits:</p>
+              <ul style="margin:6px 0 0;padding-left:24px;font-size:16px;font-weight:700;line-height:1.2;">
+                <li>Trust</li>
+                <li>Movement</li>
+                <li>Discovery</li>
+              </ul>
+            </div>
+            <div style="overflow:hidden;border:2px solid #7a0f23;border-radius:12px;background:#fff;padding:0;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779143869/images/Website_Icon_Logo_GHL_3_u7ehtm.png" alt="Blaze mascot" style="width:100%;height:100%;object-fit:cover;" /></div>
+          </div>
+
+          <div style="margin-top:10px;border-radius:12px;background:#6f081b;color:#fff2e0;padding:12px;font-size:14px;line-height:1.35;">Full of energy and eager to explore, our one-year-olds are like young horses, bold yet in need of direction. In the Red House, we build trust, foster independence, and guide each little step with love.</div>
+
+          <div style="margin-top:10px;border:2px solid #7a0f23;border-radius:12px;background:#fff;padding:10px;">
+            <h4 style="margin:0;font-size:36px;line-height:.9;color:#7a0f23;text-transform:uppercase;">Freshman Classroom</h4>
+            <p style="margin:4px 0 0;font-size:18px;color:#7a0f23;font-weight:700;">Purpose Pasture Hall - Red House</p>
+            <div style="margin-top:6px;font-size:14px;line-height:1.3;">
+              <p style="margin:2px 0;"><b>Age Group:</b> 1 - 2 Year Old</p>
+              <p style="margin:2px 0;"><b>Class Size:</b> Maximum 10 Students</p>
+              <p style="margin:2px 0;"><b>Schedule:</b> Monday - Friday, 8:30 AM - 2:30 PM</p>
+              <p style="margin:2px 0;"><b>Learning Environment:</b> Early language, sensory play, motor skills, interaction</p>
+            </div>
+          </div>
+        </article>
+
+        <div style="display:grid;gap:10px;">
+          <article style="overflow:hidden;border:2px solid #7a0f23;border-radius:18px;background:#f8f6f8;padding:10px;">
+            <div style="height:100%;border-radius:12px;background:#f8f6f8;color:#7a0f23;">
+              <h4 style="margin:0;display:flex;align-items:center;gap:10px;font-size:32px;line-height:1;font-weight:900;">
+                <span style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;background:#7a0f23;color:#fff;font-size:16px;">📖</span>
+                Our Classrooms
+              </h4>
+              <div style="margin-top:8px;overflow:hidden;border-radius:16px;border:1px solid #e4d5bf;background:#fff;padding:6px;">
+                <img id="classroom-main-image-2" src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214754/images/ChatGPT_Image_May_20_2026_02_18_55_AM_bktiue.png" alt="Our Classrooms main" style="width:100%;height:250px;object-fit:cover;border-radius:12px;display:block;" />
+              </div>
+              <div style="margin-top:8px;overflow:hidden;border-radius:12px;border:1px solid #e4d5bf;background:#fffaf1;padding:6px;">
+                <div class="classroom-slider-track" style="gap:8px;">
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214754/images/ChatGPT_Image_May_20_2026_02_18_55_AM_bktiue.png" alt="Our classroom 1" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214731/images/ChatGPT_Image_May_20_2026_12_56_05_AM_eke5zk.png" alt="Our classroom 2" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214725/images/ChatGPT_Image_May_20_2026_12_56_12_AM_m8mz7j.png" alt="Our classroom 3" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214720/images/ChatGPT_Image_May_20_2026_12_56_17_AM_dry5ln.png" alt="Our classroom 4" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214715/images/ChatGPT_Image_May_20_2026_12_56_23_AM_nsnhi3.png" alt="Our classroom 5" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214710/images/ChatGPT_Image_May_20_2026_12_56_52_AM_iayqvh.png" alt="Our classroom 6" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214705/images/ChatGPT_Image_May_20_2026_12_57_02_AM_wtfzqs.png" alt="Our classroom 7" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214754/images/ChatGPT_Image_May_20_2026_02_18_55_AM_bktiue.png" alt="Our classroom 8" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214731/images/ChatGPT_Image_May_20_2026_12_56_05_AM_eke5zk.png" alt="Our classroom 9" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214725/images/ChatGPT_Image_May_20_2026_12_56_12_AM_m8mz7j.png" alt="Our classroom 10" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214720/images/ChatGPT_Image_May_20_2026_12_56_17_AM_dry5ln.png" alt="Our classroom 11" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214715/images/ChatGPT_Image_May_20_2026_12_56_23_AM_nsnhi3.png" alt="Our classroom 12" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214710/images/ChatGPT_Image_May_20_2026_12_56_52_AM_iayqvh.png" alt="Our classroom 13" style="height:44px;border-radius:6px;" /></div>
+                  <div class="classroom-thumb" style="width:110px;flex:0 0 110px;padding:4px;"><img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1779214705/images/ChatGPT_Image_May_20_2026_12_57_02_AM_wtfzqs.png" alt="Our classroom 14" style="height:44px;border-radius:6px;" /></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div id="pph-bottom-cards" style="margin-top:10px;display:grid;gap:10px;grid-template-columns:1fr 1fr;align-items:stretch;">
+            <article style="height:100%;border:2px solid #7a0f23;border-radius:28px;background:#f8f6f8;padding:12px;color:#3f2a23;display:flex;flex-direction:column;justify-content:center;">
+              <div style="width:100%;max-width:92%;">
+                <h4 style="margin:0;color:#7a0f23;font-size:34px;line-height:1;text-align:center;display:flex;align-items:baseline;justify-content:center;gap:10px;"><span style="line-height:1;">★</span><span style="line-height:1;">WHAT WE DO</span></h4>
+                <ul style="margin:10px 0 0;padding-left:24px;font-size:20px;line-height:1.45;font-weight:700;">
+                  <li>Hands-on learning activities</li>
+                  <li>Story time &amp; circle time</li>
+                  <li>Creative arts &amp; crafts</li>
+                  <li>Sensory play &amp; exploration</li>
+                  <li>Building social skills &amp; confidence</li>
+                  <li>Encouraging independence</li>
+                  <li>Building a strong foundation for lifelong learning</li>
+                </ul>
+              </div>
+            </article>
+
+            <article style="height:100%;border:2px solid #7a0f23;border-radius:18px;background:#f8f6f8;padding:12px;text-align:center;color:#3f2a23;display:flex;flex-direction:column;">
+              <p style="margin:0;color:#7a0f23;font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;"><span style="line-height:1;">🎁</span><span>New Enrollees Can Get</span></p>
+              <h4 style="margin:8px 0 0;color:#7a0f23;font-size:52px;line-height:.9;">1 Free<br/>Elite Uniform</h4>
+              <p style="margin:8px 0 0;font-size:16px;">when they use the teacher's referral code:</p>
+              <div style="margin:8px auto 0;display:inline-block;background:#6f081b;color:#fff;padding:8px 38px;border-radius:10px;font-size:48px;font-weight:900;">RED10</div>
+              <p style="margin:10px 0 0;font-size:16px;font-weight:700;">Two Easy Ways to Register</p>
+              <div style="margin-top:auto;padding-top:8px;display:grid;gap:8px;grid-template-columns:1fr 1fr;">
+                <a href="https://elitechildrenlearningcenter.com" target="_blank" rel="noreferrer" style="display:block;position:relative;z-index:2;pointer-events:auto;cursor:pointer;text-align:center;text-decoration:none;background:#6f081b;color:#fff;border-radius:10px;padding:10px;font-size:20px;font-weight:700;">Register Online</a>
+                <a href="#contact" style="display:block;position:relative;z-index:2;pointer-events:auto;cursor:pointer;text-align:center;text-decoration:none;background:#6f081b;color:#fff;border-radius:10px;padding:10px;font-size:20px;font-weight:700;">Schedule a Tour</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" style="margin-top:10px;background:#651625;color:#fff7e8;border:1px solid rgba(216,164,65,.4);border-radius:16px;padding:22px 30px;box-shadow:0 8px 20px rgba(0,0,0,.18);">
+      <div id="shop" style="height:1px;"></div>
+      <div style="display:grid;gap:16px;grid-template-columns:1fr 1fr 1fr;align-items:center;text-align:center;">
+        <div>
+          <img src="https://res.cloudinary.com/dozcy2jve/image/upload/v1777494677/images/xxx_Panda_Buck_Playbook.pdf_1_i803ac.png" alt="ECLC logo" style="width:88px;height:88px;object-fit:contain;display:block;margin:0 auto;" />
+          <p style="margin:14px 0 0;font-size:18px;font-weight:600;font-style:italic;color:#f7dec1;">Elite Children Learning Center</p>
+        </div>
+        <div>
+          <p style="margin:0;font-size:28px;font-weight:700;color:#f7d891;">Contact</p>
+          <p style="margin:10px 0 0;font-size:16px;font-weight:600;font-style:italic;color:#f7dec1;">Phone: +1 678-403-143</p>
+          <p style="margin:8px 0 0;font-size:16px;font-weight:600;font-style:italic;color:#f7dec1;">Email: aadmin@eliteschildren.com</p>
+        </div>
+        <div>
+          <p style="margin:0;font-size:28px;font-weight:700;color:#f7d891;">Social Media</p>
+          <div style="margin-top:14px;display:flex;justify-content:center;gap:10px;">
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:4px;background:#1877F2;color:#fff;font-size:12px;font-weight:900;text-decoration:none;">f</a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:4px;background:#E1306C;color:#fff;font-size:12px;font-weight:900;text-decoration:none;">ig</a>
+            <a href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:4px;background:#FF0000;color:#fff;font-size:10px;font-weight:900;text-decoration:none;">yt</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <script>
+    (function () {
+      const classroomMainImage = document.getElementById('classroom-main-image');
+      const classroomMainImage2 = document.getElementById('classroom-main-image-2');
+      if (!classroomMainImage && !classroomMainImage2) return;
+
+      const classroomSlideImages = [
+        'https://res.cloudinary.com/dozcy2jve/image/upload/v1779214754/images/ChatGPT_Image_May_20_2026_02_18_55_AM_bktiue.png',
+        'https://res.cloudinary.com/dozcy2jve/image/upload/v1779214731/images/ChatGPT_Image_May_20_2026_12_56_05_AM_eke5zk.png',
+        'https://res.cloudinary.com/dozcy2jve/image/upload/v1779214725/images/ChatGPT_Image_May_20_2026_12_56_12_AM_m8mz7j.png',
+        'https://res.cloudinary.com/dozcy2jve/image/upload/v1779214720/images/ChatGPT_Image_May_20_2026_12_56_17_AM_dry5ln.png',
+        'https://res.cloudinary.com/dozcy2jve/image/upload/v1779214715/images/ChatGPT_Image_May_20_2026_12_56_23_AM_nsnhi3.png',
+        'https://res.cloudinary.com/dozcy2jve/image/upload/v1779214710/images/ChatGPT_Image_May_20_2026_12_56_52_AM_iayqvh.png',
+        'https://res.cloudinary.com/dozcy2jve/image/upload/v1779214705/images/ChatGPT_Image_May_20_2026_12_57_02_AM_wtfzqs.png'
+      ];
+
+      let imageIndex = 0;
+      setInterval(function () {
+        imageIndex = (imageIndex + 1) % classroomSlideImages.length;
+        if (classroomMainImage) classroomMainImage.src = classroomSlideImages[imageIndex];
+        if (classroomMainImage2) classroomMainImage2.src = classroomSlideImages[imageIndex];
+      }, 4000);
+    })();
+  </script>
+</body>
+</html>
